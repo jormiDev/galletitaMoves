@@ -29,7 +29,7 @@ pines conectados
 /*
 main
 */
-#define     VERSION             0.01
+#define     VERSION             0.02
                                 // 0.01 - version inicial
 
 /*
