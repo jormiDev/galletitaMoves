@@ -3,12 +3,12 @@
 // init pines de los motores
 void RA_tractora_setup()
 {
-    pinMode(PIN_MOTOR_IZQ_IN1, OUTPUT);
-    pinMode(PIN_MOTOR_IZQ_IN2, OUTPUT);
-    pinMode(PIN_MOTOR_IZQ_EN, OUTPUT);
-    pinMode(PIN_MOTOR_DER_IN1, OUTPUT);
-    pinMode(PIN_MOTOR_DER_IN2, OUTPUT);
-    pinMode(PIN_MOTOR_DER_EN, OUTPUT);
+    pinMode(PIN_MOTOR_IN1, OUTPUT);
+    pinMode(PIN_MOTOR_IN2, OUTPUT);
+    pinMode(PIN_MOTOR_ENA, OUTPUT);
+    pinMode(PIN_MOTOR_IN3, OUTPUT);
+    pinMode(PIN_MOTOR_IN4, OUTPUT);
+    pinMode(PIN_MOTOR_ENB, OUTPUT);
 
     RA_tractora_detener();
 }
@@ -16,13 +16,13 @@ void RA_tractora_setup()
 // velocidades independientes por rueda: -255..255
 void RA_tractora_girar(int _velIzq, int _velDer)
 {
-    digitalWrite(PIN_MOTOR_IZQ_IN1, _velIzq >= 0 ? HIGH : LOW);
-    digitalWrite(PIN_MOTOR_IZQ_IN2, _velIzq >= 0 ? LOW : HIGH);
-    analogWrite(PIN_MOTOR_IZQ_EN, constrain(abs(_velIzq), 0, 255));
+    digitalWrite(PIN_MOTOR_IN1, _velIzq >= 0 ? HIGH : LOW);
+    digitalWrite(PIN_MOTOR_IN2, _velIzq >= 0 ? LOW : HIGH);
+    analogWrite(PIN_MOTOR_ENA, constrain(abs(_velIzq), 0, 255));
 
-    digitalWrite(PIN_MOTOR_DER_IN1, _velDer >= 0 ? HIGH : LOW);
-    digitalWrite(PIN_MOTOR_DER_IN2, _velDer >= 0 ? LOW : HIGH);
-    analogWrite(PIN_MOTOR_DER_EN, constrain(abs(_velDer), 0, 255));
+    digitalWrite(PIN_MOTOR_IN3, _velDer >= 0 ? HIGH : LOW);
+    digitalWrite(PIN_MOTOR_IN4, _velDer >= 0 ? LOW : HIGH);
+    analogWrite(PIN_MOTOR_ENB, constrain(abs(_velDer), 0, 255));
 }
 
 void RA_tractora_adelante(int _velocidad)

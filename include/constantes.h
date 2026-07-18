@@ -10,12 +10,12 @@ pines conectados
 */
 
 // robot_tractora.hpp - Driver de motores L298N
-#define     PIN_MOTOR_IZQ_IN1   4
-#define     PIN_MOTOR_IZQ_IN2   5
-#define     PIN_MOTOR_IZQ_EN    6       // PWM
-#define     PIN_MOTOR_DER_IN1   7
-#define     PIN_MOTOR_DER_IN2   8
-#define     PIN_MOTOR_DER_EN    9       // PWM
+#define     PIN_MOTOR_IN1   4
+#define     PIN_MOTOR_IN2   5
+#define     PIN_MOTOR_ENA    6       // PWM
+#define     PIN_MOTOR_IN3   7
+#define     PIN_MOTOR_IN4   8
+#define     PIN_MOTOR_ENB    9       // PWM
 
 // robot_gallato.hpp - sensor HC-SR04 + servo SG90
 #define     PIN_SENSOR_TRIG     12
