@@ -20,7 +20,7 @@ char RA_brutus_leerComando()
 }
 
 // envia una linea de texto a la app
-void RA_brutus_enviarEstado(String _txt)
+void RA_brutus_enviarEstado(const char* _txt)
 {
     btBrutus.println(_txt);
 }
