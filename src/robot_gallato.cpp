@@ -36,7 +36,7 @@ long RA_gallato_medirDistancia()
 }
 
 // barre entre _aIni y _aFin y devuelve el angulo con mas distancia libre
-int RA_gallato_mejorDireccion(int _aIni, int _aFin, int _paso)
+int RA_gallato_mejorDireccion(int _aIni, int _aFin, int _paso, long* _distOut)
 {
     int _mejorAngulo = 90;
     long _mejorDist = -1;
@@ -51,6 +51,9 @@ int RA_gallato_mejorDireccion(int _aIni, int _aFin, int _paso)
             _mejorAngulo = _a;
         }
     }
+
+    if (_distOut != nullptr)
+        *_distOut = _mejorDist;     // devuelve la mejor distancia al caller
 
     RA_gallato_apuntar(90);
     return _mejorAngulo;
