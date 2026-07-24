@@ -59,8 +59,11 @@ void RA_logica_loop()
     case MAQ_EVALUANDO:
     {
         int _mejorAngulo = RA_gallato_mejorDireccion(30, 150, 30);
-        long _distMejor = RA_gallato_medirDistancia(); // el servo vuelve a 90 tras el barrido
+        RA_gallato_apuntar(_mejorAngulo);                    // apunta al mejor
+        long _distMejor = RA_gallato_medirDistancia();        // mide allí
+        RA_gallato_apuntar(90);                              // vuelve al centro
 
+        
         if (_distMejor < DIST_SEGURIDAD)
         {
             RA_brutus_enviarEstado("Bloqueado, retrocediendo");
