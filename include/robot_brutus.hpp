@@ -25,7 +25,7 @@ bool RA_brutus_hayComando();
 char RA_brutus_leerComando();
 
 // envia una linea de texto a la app (estado, telemetria...)
-void RA_brutus_enviarEstado(String _txt);
+void RA_brutus_enviarEstado(const char* _txt);
 
 // cambia el modo: true(autonomo) / false(manual)
 void RA_brutus_modo(bool _modo);
