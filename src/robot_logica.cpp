@@ -58,35 +58,33 @@ void RA_logica_loop()
 
     case MAQ_EVALUANDO:
     {
-        int _mejorAngulo = RA_gallato_mejorDireccion(30, 150, 30);
-        RA_gallato_apuntar(_mejorAngulo);                    // apunta al mejor
-        long _distMejor = RA_gallato_medirDistancia();        // mide allí
-        RA_gallato_apuntar(90);                              // vuelve al centro
+       
+    long _distMejor = 0;
+    int _mejorAngulo = RA_gallato_mejorDireccion(30, 150, 30, &_distMejor);
 
-        
-        if (_distMejor < DIST_SEGURIDAD)
-        {
-            RA_brutus_enviarEstado("Bloqueado, retrocediendo");
-            maqEstadoPrevio = maqEstado;
-            maqEstado = MAQ_RETROCEDIENDO;
-        }
-        else if (_mejorAngulo < 90)
-        {
-            RA_tractora_pivotarIzquierda(VELOCIDAD_CRUCERO);
-            maqEstadoPrevio = maqEstado;
-            maqEstado = MAQ_GIRANDO;
-        }
-        else if (_mejorAngulo > 90)
-        {
-            RA_tractora_pivotarDerecha(VELOCIDAD_CRUCERO);
-            maqEstadoPrevio = maqEstado;
-            maqEstado = MAQ_GIRANDO;
-        }
-        else
-        {
-            maqEstado = MAQ_AVANZANDO; // ya despejado al frente
-        }
-        break;
+    if (_distMejor < DIST_SEGURIDAD)
+    {
+        RA_brutus_enviarEstado("Bloqueado, retrocediendo");
+        maqEstadoPrevio = maqEstado;
+        maqEstado = MAQ_RETROCEDIENDO;
+    }
+    else if (_mejorAngulo < 90)
+    {
+        RA_tractora_pivotarIzquierda(VELOCIDAD_CRUCERO);
+        maqEstadoPrevio = maqEstado;
+        maqEstado = MAQ_GIRANDO;
+    }
+    else if (_mejorAngulo > 90)
+    {
+        RA_tractora_pivotarDerecha(VELOCIDAD_CRUCERO);
+        maqEstadoPrevio = maqEstado;
+        maqEstado = MAQ_GIRANDO;
+    }
+    else
+    {
+        maqEstado = MAQ_AVANZANDO;
+    }
+    break;
     }
 
     case MAQ_GIRANDO:
