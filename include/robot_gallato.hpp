@@ -26,7 +26,7 @@ long RA_gallato_medirDistancia();
 
 // barre entre _aIni y _aFin y devuelve el angulo con mas distancia libre
 // al terminar deja el servo centrado en 90
-int RA_gallato_mejorDireccion(int _aIni, int _aFin, int _paso);
+int RA_gallato_mejorDireccion(int _aIni, int _aFin, int _paso, long* _distOut = nullptr);
 
 // funcion de test del sensor
 void RA_gallato_test(int _prueba);
